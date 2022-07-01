@@ -8,7 +8,7 @@ module.exports = (sequelize: Sequelize, DataTypes: any) => {
     status!: boolean
 
     static associate = (models: any) => {
-      // define association here
+      Country.hasMany(models.Film, {foreignKey: {name:'recording_country', allowNull: false}})
     }
   }
   Country.init({

@@ -8,7 +8,7 @@ module.exports = (sequelize: Sequelize, DataTypes: any) => {
     status!: boolean
 
     static associate = (models: any) => {
-      // define association here
+      FilmFormatType.belongsToMany(models.Film, {through: 'FilmFormat'})
     }
   }
   FilmFormatType.init({

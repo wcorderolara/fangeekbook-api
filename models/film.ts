@@ -58,11 +58,18 @@ module.exports = (sequelize: Sequelize, DataTypes: any) => {
 
     static associate = (models: any) => {
       Film.belongsTo(models.FilmGenreType, {foreignKey: {name:'genre_type', allowNull: false}});
+      Film.belongsTo(models.FilmCategory, {foreignKey: {name:'film_category', allowNull: false}});
+      Film.belongsTo(models.Country, {foreignKey: {name:'recording_country', allowNull: false}});
+      Film.belongsTo(models.FilmLanguage, {foreignKey: {name:'original_language', allowNull: false}});
+      Film.belongsTo(models.FilmRating, {foreignKey: {name:'rating_id', allowNull: false}});
+      Film.belongsTo(models.Distributor, {foreignKey: {name: 'distributor_id', allowNull: false}});
+
+      Film.belongsToMany(models.FilmFormatType, {through: 'FilmFormat'})
     }
   }
   Film.init({
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
-    category: {type: DataTypes.INTEGER, field: 'category', allowNull: false},
+    category: {type: DataTypes.INTEGER, field: 'film_category', allowNull: false},
     genreType: {type: DataTypes.INTEGER, field: 'genre_type', allowNull: false},
     originalLanguage: {type: DataTypes.INTEGER, field: 'original_language', allowNull: false},
     recordingCountry: {type: DataTypes.INTEGER, field: 'recording_country', allowNull: false},
