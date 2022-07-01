@@ -8,7 +8,7 @@ module.exports = (sequelize: Sequelize, DataTypes: any) => {
     status!: boolean
 
     static associate = (models: any) => {
-      // define association here
+      FilmGenreType.hasMany(models.Film, {foreignKey: {name:'genre_type', allowNull: false}});
     }
   }
   FilmGenreType.init({
