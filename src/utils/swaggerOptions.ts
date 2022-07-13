@@ -11,7 +11,7 @@ export const options = {
         },
         servers: [
             {
-                url: process.env.API_SERVER+"/fangeekbook/api/v1"
+                url: "http://localhost:3001/fgb/api/v1"
             }
         ]
     },

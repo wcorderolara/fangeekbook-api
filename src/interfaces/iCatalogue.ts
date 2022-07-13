@@ -1,7 +1,7 @@
 // Va ser utilizada para crear o actualizar una instacia en la Base de Datos
 // se utiliza en el Backend
 export interface iCatalogueAttributes {
-    id: number;
+    id?: number;
     description: string;
     status?: boolean;
 }
